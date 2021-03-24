@@ -1,0 +1,11 @@
+- item: About
+  url: about/
+- item: Form type
+  url: forms
+- item: Company
+  url: companies
+- item: Industry
+  url: industries
+- item: Tag
+  url: tags
+

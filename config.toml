@@ -1,0 +1,15 @@
+baseURL = "http://tapaskapadia.github.io/sec-word-clouds"
+languageCode = "en-us"
+title = "SEC Form Visualizations"
+theme = "newsroom"
+[taxonomies]
+  companies = "companies"
+  industry = "industries"
+  tag = "tags"
+  form = "forms"
+[params]
+  disableDarkMode = true 
+[author]
+    name = "Tapas"
+    homepage = "https://github.com/tapaskapadia"
+
