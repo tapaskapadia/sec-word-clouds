@@ -1,4 +1,4 @@
-baseURL = "http://tapaskapadia.github.io/sec-word-clouds"
+baseURL = "https://tapaskapadia.github.io/sec-word-clouds"
 languageCode = "en-us"
 title = "SEC Form Visualizations"
 theme = "newsroom"
