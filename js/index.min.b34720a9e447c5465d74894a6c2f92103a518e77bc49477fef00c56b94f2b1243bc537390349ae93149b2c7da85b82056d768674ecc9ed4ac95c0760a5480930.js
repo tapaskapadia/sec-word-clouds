@@ -1,6 +1,6 @@
 (function(){
   const doc = document.documentElement;
-  const parentURL = 'http://tapaskapadia.github.io/';
+  const parentURL = 'https://tapaskapadia.github.io/';
 
   function createEl(element='div') {
     return document.createElement(element);
