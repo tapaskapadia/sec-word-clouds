@@ -55,3 +55,4 @@ jobs:
           git add .
           git commit -m "auto generated - commiting changes for the site using word cloud script"
           git push
+        working-directory: main
