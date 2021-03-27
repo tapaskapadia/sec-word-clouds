@@ -1,10 +1,15 @@
 name: pipeline testing
-on: [workflow_dispatch]
-# on:
-#   push:
-#     branches:
-#       - pipelineTesting  # Set a branch to deploy
-
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Person to greet'
+        # Default value if no value is explicitly provided
+        default: 'World'
+        # Input has to be provided for the workflow to run
+        required: true
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -38,7 +43,7 @@ jobs:
         env:
           DAILY_LIMIT: 3
         working-directory: generate
-        
+
       - name: Copy Images and Static markdown to  
         run: |
           mv ./generate/generatedImages/*.png ./main/static/images
