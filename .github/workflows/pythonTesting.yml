@@ -1,9 +1,9 @@
 name: pipeline testing
-
-on:
-  push:
-    branches:
-      - pipelineTesting  # Set a branch to deploy
+on: [workflow_dispatch]
+# on:
+#   push:
+#     branches:
+#       - pipelineTesting  # Set a branch to deploy
 
 jobs:
   deploy:
@@ -38,3 +38,13 @@ jobs:
         env:
           DAILY_LIMIT: 3
         working-directory: generate
+      - name: Copy Images and Static markdown to  
+        run: |
+          mv ./generate/generatedImages/*.png ./main/static/images
+          mv ./generate/markdown/*.md ./main/content/posts
+      - name: Push changes with newly generated data
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "auto generated - commiting changes for the site using word cloud script"
+          git push
