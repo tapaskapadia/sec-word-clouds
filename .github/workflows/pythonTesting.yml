@@ -36,5 +36,5 @@ jobs:
         run: |
           python main.py
         env:
-          DAILY_LIMIT: 2
+          DAILY_LIMIT: 3
         working-directory: generate
