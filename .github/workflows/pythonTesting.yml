@@ -32,7 +32,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
         working-directory: generate
-      - name: Run Generator Script
+      - name: Run Scrape & Generator Script
         run: |
           python main.py
         env:
