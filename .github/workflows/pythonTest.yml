@@ -43,7 +43,6 @@ jobs:
         env:
           DAILY_LIMIT: 3
         working-directory: generate
-
       - name: Copy Images and Static markdown to  
         run: |
           mv ./generate/generatedImages/*.png ./main/static/images
@@ -56,3 +55,16 @@ jobs:
           git commit -m "auto generated - commiting changes for the site using word cloud script"
           git push
         working-directory: main
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build
+        run: hugo --minify
+        working-directory: main
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./main/public
