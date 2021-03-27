@@ -1,4 +1,4 @@
-name: pipeline testing
+name: pipeline test
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
