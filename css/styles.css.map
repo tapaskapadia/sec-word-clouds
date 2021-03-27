@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/home/runner/work/sec-word-clouds/sec-word-clouds",
+	"sourceRoot": "/home/runner/work/sec-word-clouds/sec-word-clouds/main",
 	"sources": [
 		"themes/newsroom/assets/sass/main.sass",
 		"themes/newsroom/assets/sass/_variables.sass",
