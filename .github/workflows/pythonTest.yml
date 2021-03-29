@@ -1,0 +1,71 @@
+name: pipeline test
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Person to greet'
+        # Default value if no value is explicitly provided
+        default: 'HelloWorld'
+        # Input has to be provided for the workflow to run
+        required: true
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          path: main
+      - name: Checkout python script repo
+        uses: actions/checkout@v2
+        with:
+          repository: tapaskapadia/sec-forms-word-cloud-script
+          path: generate
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Check files
+        run: |
+          ls -la 
+          pwd
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        working-directory: generate
+      - name: Run Scrape & Generator Script
+        run: |
+          python main.py
+        env:
+          DAILY_LIMIT: 2
+        working-directory: generate
+      - name: Copy filing data, images, and dtatic markdown  
+        run: |
+          mv ./generate/filingData/*.json ./main/static/dataFiles
+          mv ./generate/generatedImages/*.png ./main/static/images
+          mv ./generate/markdown/*.md ./main/content/posts
+      - name: Push changes with newly generated data
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "auto generated - commiting changes for the site using word cloud script"
+          git push
+        working-directory: main
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build
+        run: hugo --minify
+        working-directory: main
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./main/public
