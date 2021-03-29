@@ -38,7 +38,7 @@ jobs:
         run: |
           python main.py
         env:
-          DAILY_LIMIT: 10
+          DAILY_LIMIT: 13
         working-directory: generate
       - name: Copy filing data, images, and dtatic markdown  
         run: |
