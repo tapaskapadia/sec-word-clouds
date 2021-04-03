@@ -5,7 +5,7 @@
 - item: Company
   url: companies
 - item: Industry
-  url: industries
+  url: industry
 - item: Tag
   url: tags
 

@@ -4,7 +4,7 @@ title = "SEC Form Visualizations"
 theme = "newsroom"
 [taxonomies]
   companies = "companies"
-  industry = "industries"
+  industry = "industry"
   tag = "tags"
   form = "forms"
 [params]
