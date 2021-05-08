@@ -1,9 +1,9 @@
 # sec-word-clouds
-Website generated from scraping SEC filings and visualizing the data as word clouds
+Website generated from scraping SEC filings and visualizing the data as word clouds  
 https://tapaskapadia.github.io/sec-word-clouds/
 
 ## About The Repository
-This repository builds and deploys a static hugo generated website on [GitHub Pages](https://tapaskapadia.github.io/sec-word-clouds/). It utilizes a SEC scraper script that can be found  [here](https://github.com/tapaskapadia/sec-forms-word-cloud-script) to pull new SEC filings every weekday automatically utilizing Github Actions. 
+This repository builds and deploys a static hugo generated website on [GitHub Pages](https://tapaskapadia.github.io/sec-word-clouds/). It utilizes a SEC scraper script that can be found [here](https://github.com/tapaskapadia/sec-forms-word-cloud-script) to pull and visualize new SEC filings every weekday automatically utilizing Github Actions. 
 
 Regardless if you are interested in SEC filing visualizations or not, this repository provides a great example of a Github Actions Workflow for automating the building and updating of a website on a regular schedule utilizing an external script to generate new static assets. 
 #### How the Github Actions Workflow Works:
@@ -19,6 +19,6 @@ Why:
 * Why Not
 
 ### Built With
-Hugo 
-Github Actions
-
+Hugo, 
+Github Actions,
+[SEC Scraper Utility](https://github.com/tapaskapadia/sec-forms-word-cloud-script)  
