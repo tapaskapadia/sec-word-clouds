@@ -51,13 +51,12 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "auto generated - commiting changes for the site using word cloud script"
-          git pull
           git push
         working-directory: main
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.88.1'
+          hugo-version: '0.85.0'
           extended: true
       - name: Build
         run: hugo --minify
