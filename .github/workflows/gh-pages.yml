@@ -51,6 +51,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "auto generated - commiting changes for the site using word cloud script"
+          git pull
           git push
         working-directory: main
       - name: Setup Hugo
