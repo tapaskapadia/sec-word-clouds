@@ -4,8 +4,8 @@ name: github pages
 
 on:
   schedule:
-    # run every weekday at 7pm ET (11pm UTC)
-    - cron:  '0 23 * * 1-5'
+    # run every Wednesday at 7pm ET (11pm UTC)
+    - cron:  '0 23 * * 3'
 
 jobs:
   deploy:
